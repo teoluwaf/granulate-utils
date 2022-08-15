@@ -40,7 +40,7 @@ class BatchingHandler(Handler):
         # Snapshot the current num logs because logs list might be extended meanwhile.
         logs_count = len(self._buffer)
         self.flush_logs(self._buffer[:logs_count])
-        # If succeeded, remove the sent logs from the list.
+        # If succeeded, remove the flushed logs from the list.
         self._buffer[:logs_count] = []
 
     def flush_logs(self, logs: list[dict[str, Any]]) -> None:
